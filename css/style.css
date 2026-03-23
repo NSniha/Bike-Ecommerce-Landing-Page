@@ -1,0 +1,285 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background: #151313;
+    overflow-x: hidden;
+}
+
+body.menu-open {
+    overflow: hidden;
+    height: 100vh;
+}
+
+.reveal-up,
+.reveal-left,
+.reveal-right {
+    opacity: 0;
+    transition: transform 0.8s ease, opacity 0.8s ease;
+    will-change: transform, opacity;
+}
+
+.reveal-up {
+    transform: translateY(28px);
+}
+
+.reveal-left {
+    transform: translateX(-28px);
+}
+
+.reveal-right {
+    transform: translateX(28px);
+}
+
+.reveal-up.active,
+.reveal-left.active,
+.reveal-right.active {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+.mobile-menu-open {
+    transform: translateX(0) !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+}
+
+.overlay-open {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+}
+
+.card-hover-smooth {
+    transition:
+        transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.card-hover-smooth:hover {
+    transform: translateY(-8px);
+}
+
+.button-smooth {
+    transition:
+        transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+        opacity 0.35s ease,
+        background-color 0.35s ease,
+        color 0.35s ease,
+        border-color 0.35s ease;
+}
+
+.button-smooth:hover {
+    transform: translateY(-2px);
+}
+
+/* Header extra */
+#siteHeader {
+    background: rgba(5, 5, 5, 0.96);
+}
+
+#siteHeader.scrolled {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.28);
+}
+
+#siteHeader nav a {
+    position: relative;
+}
+
+#siteHeader nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 0;
+    height: 1.5px;
+    background: #e43a00;
+    transition: width 0.3s ease;
+}
+
+#siteHeader nav a:hover::after {
+    width: 100%;
+}
+
+@media (max-width: 639px) {
+    #siteHeader h1 {
+        font-size: 34px !important;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .reveal-up,
+    .reveal-left,
+    .reveal-right,
+    .reveal-scale,
+    .card-hover-smooth,
+    .button-smooth {
+        transition: none !important;
+        transform: none !important;
+        opacity: 1 !important;
+    }
+}
+
+/* =========================
+   Hero Section Custom CSS
+========================= */
+.hero-copy h2,
+.hero-copy p,
+.hero-copy span {
+    text-wrap: balance;
+}
+
+.hero-section .shadow-panel {
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.22);
+}
+
+@media (max-width: 1279px) {
+    .hero-section .hero-copy {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 767px) {
+    .hero-section {
+        background:
+            radial-gradient(circle at 50% 18%, rgba(255, 255, 255, 0.03), transparent 34%),
+            linear-gradient(180deg, #191818 0%, #171515 100%);
+    }
+
+    .hero-section .hero-copy h2 {
+        max-width: 100%;
+    }
+
+    .hero-section .hero-copy p {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 575px) {
+    .hero-section .hero-copy h2 {
+        font-size: 32px !important;
+        line-height: 1.16 !important;
+    }
+
+    .hero-section .hero-copy p {
+        font-size: 13.5px !important;
+        line-height: 1.65 !important;
+        max-width: 100%;
+    }
+}
+
+/* =========================
+   Features Section
+========================= */
+.reveal-scale {
+    opacity: 0;
+    transform: scale(0.92) translateY(24px);
+    transition: transform 0.8s ease, opacity 0.8s ease;
+    will-change: transform, opacity;
+}
+
+.reveal-scale.active {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+}
+
+.delay-1 {
+    transition-delay: 0.08s;
+}
+
+.delay-2 {
+    transition-delay: 0.16s;
+}
+
+.delay-3 {
+    transition-delay: 0.24s;
+}
+
+.delay-4 {
+    transition-delay: 0.32s;
+}
+
+.feature-card {
+    position: relative;
+}
+
+.feature-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 14px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0));
+    pointer-events: none;
+}
+
+.feature-icon-wrap {
+    transition: transform 0.35s ease, background-color 0.35s ease;
+}
+
+.feature-card:hover .feature-icon-wrap {
+    transform: translateY(-3px) scale(1.03);
+    background-color: #1d1d1d;
+}
+
+.features-slider {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.features-slider::-webkit-scrollbar {
+    display: none;
+}
+
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+@media (max-width: 639px) {
+    .features-slider {
+        scroll-padding-left: 1rem;
+        scroll-padding-right: 1rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .reveal-scale,
+    .feature-icon-wrap {
+        transition: none !important;
+        transform: none !important;
+        opacity: 1 !important;
+    }
+}
+
+/* =========================
+   Featured Products Mobile Toggle
+========================= */
+@media (max-width: 639px) {
+    .mobile-hidden-product {
+        display: none;
+    }
+
+    .mobile-hidden-product.mobile-product-show {
+        display: block;
+    }
+}
+
+/* =========================
+   Accessories Mobile Toggle
+========================= */
+@media (max-width: 639px) {
+    .mobile-hidden-accessory {
+        display: none;
+    }
+
+    .mobile-hidden-accessory.mobile-accessory-show {
+        display: block;
+    }
+}
